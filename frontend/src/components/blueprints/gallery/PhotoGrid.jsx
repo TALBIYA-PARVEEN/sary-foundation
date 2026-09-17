@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ZoomIn, Tag, PlusCircle } from 'lucide-react';
 
 const PhotoGrid = ({ photos, onSelect }) => {
@@ -44,34 +44,49 @@ const PhotoGrid = ({ photos, onSelect }) => {
           </div>
         ))}
 
-        {/* Future Photo Placeholder Spaces (Requested by User) */}
-        <div className="rounded-3xl border-2 border-dashed border-emerald-300 bg-emerald-50/40 p-8 flex flex-col items-center justify-center text-center space-y-3 aspect-[4/3] hover:border-brand-forest transition">
-          <div className="w-12 h-12 rounded-2xl bg-white text-brand-forest shadow-sm flex items-center justify-center">
-            <PlusCircle className="w-6 h-6" />
+        {/* Future Photo Placeholder Spaces for Upcoming Drives */}
+        <div className="rounded-3xl border-2 border-dashed border-emerald-300 bg-emerald-50/50 p-8 flex flex-col items-center justify-center text-center space-y-3 aspect-[4/3] hover:border-brand-forest transition shadow-sm">
+          <div className="w-14 h-14 rounded-2xl bg-white p-1 text-brand-forest shadow-md flex items-center justify-center border border-emerald-200">
+            <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-xl" />
           </div>
           <div>
-            <h4 className="font-bold text-sm text-brand-dark">Upcoming Drive Photo Space</h4>
+            <h4 className="font-bold text-sm text-brand-dark">Ghat Cleanliness Drive #1</h4>
             <p className="text-xs text-gray-500 max-w-xs mt-1">
-              Field photos from our upcoming Sunday morning cleanliness drive will be posted here.
+              Field photos from our upcoming inaugural Sunday morning cleanliness drive will be posted here.
             </p>
           </div>
-          <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
-            Space Reserved
+          <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-800 bg-emerald-100 px-3.5 py-1 rounded-full border border-emerald-200">
+            Inaugural Drive Reserved
           </span>
         </div>
 
-        <div className="rounded-3xl border-2 border-dashed border-emerald-300 bg-emerald-50/40 p-8 flex flex-col items-center justify-center text-center space-y-3 aspect-[4/3] hover:border-brand-forest transition">
-          <div className="w-12 h-12 rounded-2xl bg-white text-brand-forest shadow-sm flex items-center justify-center">
-            <PlusCircle className="w-6 h-6" />
+        <div className="rounded-3xl border-2 border-dashed border-emerald-300 bg-emerald-50/50 p-8 flex flex-col items-center justify-center text-center space-y-3 aspect-[4/3] hover:border-brand-forest transition shadow-sm">
+          <div className="w-14 h-14 rounded-2xl bg-white p-1 text-brand-forest shadow-md flex items-center justify-center border border-emerald-200">
+            <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-xl" />
           </div>
           <div>
-            <h4 className="font-bold text-sm text-brand-dark">Afforestation Drive Space</h4>
+            <h4 className="font-bold text-sm text-brand-dark">Urban Tree Plantation Drive</h4>
             <p className="text-xs text-gray-500 max-w-xs mt-1">
-              Photographs capturing sapling plantations and tree adoptions by volunteers.
+              Field moments of native sapling planting across Kanpur will be documented here.
             </p>
           </div>
-          <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
-            Space Reserved
+          <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-800 bg-emerald-100 px-3.5 py-1 rounded-full border border-emerald-200">
+            Drive Space Reserved
+          </span>
+        </div>
+
+        <div className="rounded-3xl border-2 border-dashed border-emerald-300 bg-emerald-50/50 p-8 flex flex-col items-center justify-center text-center space-y-3 aspect-[4/3] hover:border-brand-forest transition shadow-sm">
+          <div className="w-14 h-14 rounded-2xl bg-white p-1 text-brand-forest shadow-md flex items-center justify-center border border-emerald-200">
+            <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-xl" />
+          </div>
+          <div>
+            <h4 className="font-bold text-sm text-brand-dark">Zero-Waste Community Workshop</h4>
+            <p className="text-xs text-gray-500 max-w-xs mt-1">
+              Photos from our school and neighborhood source segregation drives will appear here.
+            </p>
+          </div>
+          <span className="text-[10px] uppercase font-bold tracking-widest text-emerald-800 bg-emerald-100 px-3.5 py-1 rounded-full border border-emerald-200">
+            Workshop Space Reserved
           </span>
         </div>
       </div>

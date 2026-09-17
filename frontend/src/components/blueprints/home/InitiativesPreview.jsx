@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SectionHeading from '../../common/SectionHeading';
 import { ArrowRight, Waves, TreePine, Recycle, GraduationCap, Droplet, Sparkles } from 'lucide-react';
@@ -39,20 +39,20 @@ const InitiativesPreview = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full bg-emerald-100 text-brand-forest mb-3 inline-block">
-              Core Action Areas
+              Core Planned Programs
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">
-              Our Active Initiatives
+              Our Planned Initiatives
             </h2>
             <p className="mt-2 text-sm text-gray-600 max-w-xl">
-              From riverbank plogging and tree planting to waste recycling, discover how SARY Foundation drives ground-level transformations.
+              From riverbank plogging and tree planting to zero-waste segregation, explore our proposed community drives. Register to join as a founding volunteer.
             </p>
           </div>
           <Link
             to="/initiatives"
             className="mt-4 md:mt-0 inline-flex items-center gap-2 text-brand-forest hover:text-emerald-700 font-bold text-sm group"
           >
-            <span>View All Initiatives</span>
+            <span>View All Planned Drives</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
           </Link>
         </div>
@@ -60,27 +60,29 @@ const InitiativesPreview = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {initiatives.map((item) => {
             const Icon = iconMap[item.icon] || Sparkles;
-            const percent = Math.min(100, Math.round((item.achieved / (item.target || 100)) * 100));
 
             return (
               <div
                 key={item._id}
                 className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group"
               >
-                {/* Card Banner Image */}
-                <div className="relative h-52 overflow-hidden bg-gray-100">
-                  <img
-                    src={item.image || 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80'}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold shadow-sm">
+                {/* Branded Card Header (No Fake Event Photos) */}
+                <div className="relative h-44 bg-gradient-to-br from-[#071916] via-[#0D3B2F] to-[#15803D] p-6 flex flex-col justify-between overflow-hidden">
+                  <div className="flex items-center justify-between relative z-10">
+                    <span className="px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-emerald-200 text-xs font-bold border border-white/10">
                       {item.category}
                     </span>
+                    <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20 bg-white/10 p-0.5">
+                      <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-full" />
+                    </div>
                   </div>
-                  <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-brand-forest text-white flex items-center justify-center shadow-md">
-                    <Icon className="w-5 h-5" />
+                  <div className="flex items-center gap-3 relative z-10">
+                    <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center shadow-lg border border-white/20">
+                      <Icon className="w-5 h-5 text-emerald-300" />
+                    </div>
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                      Upcoming Drive
+                    </span>
                   </div>
                 </div>
 
@@ -95,18 +97,19 @@ const InitiativesPreview = () => {
                     </p>
                   </div>
 
-                  {/* Progress bar */}
-                  <div className="pt-2 border-t border-gray-100">
-                    <div className="flex justify-between text-xs font-bold text-gray-700 mb-1.5">
-                      <span>Progress: {item.achieved} {item.unit}</span>
-                      <span className="text-brand-forest">{percent}%</span>
+                  {/* Target Goal info */}
+                  <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                    <div>
+                      <span className="text-gray-400 font-semibold block uppercase text-[10px]">Planned Goal</span>
+                      <span className="font-bold text-brand-dark">{item.target} {item.unit}</span>
                     </div>
-                    <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-brand-forest to-brand-emerald rounded-full transition-all duration-1000"
-                        style={{ width: `${percent}%` }}
-                      />
-                    </div>
+                    <Link
+                      to="/volunteer"
+                      className="text-brand-forest font-bold hover:underline flex items-center gap-1"
+                    >
+                      <span>Join Drive</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 </div>
               </div>

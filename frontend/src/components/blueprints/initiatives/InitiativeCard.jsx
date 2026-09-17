@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Waves, TreePine, Recycle, GraduationCap, Droplet, Sparkles, ArrowRight } from 'lucide-react';
 
 const iconMap = {
@@ -12,29 +12,37 @@ const iconMap = {
 
 const InitiativeCard = ({ initiative, onSelect }) => {
   const Icon = iconMap[initiative.icon] || Sparkles;
-  const percent = Math.min(100, Math.round((initiative.achieved / (initiative.target || 100)) * 100));
 
   return (
     <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group">
-      {/* Banner */}
-      <div className="relative h-56 overflow-hidden bg-gray-100">
-        <img
-          src={initiative.image || 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80'}
-          alt={initiative.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-        />
-        <div className="absolute top-4 left-4">
-          <span className="px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-brand-dark text-xs font-bold shadow-md">
+      {/* Branded Graphic Banner (No Fake Event Photos) */}
+      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#071916] via-[#0D3B2F] to-[#15803D] p-6 flex flex-col justify-between">
+        {/* Subtle decorative circles */}
+        <div className="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-emerald-500/10 blur-xl pointer-events-none" />
+        
+        <div className="flex items-center justify-between relative z-10">
+          <span className="px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-emerald-200 text-xs font-bold border border-white/10">
             {initiative.category}
           </span>
+          <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20 bg-white/10 p-0.5">
+            <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-full" />
+          </div>
         </div>
-        <div className="absolute bottom-4 right-4 w-11 h-11 rounded-2xl bg-brand-forest text-white flex items-center justify-center shadow-lg group-hover:bg-brand-emerald transition">
-          <Icon className="w-5 h-5" />
+
+        <div className="flex items-center gap-3 relative z-10">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-105 transition transform">
+            <Icon className="w-6 h-6 text-emerald-300" />
+          </div>
+          <div>
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">
+              Planned Campaign
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Body */}
-      <div className="p-7 flex-1 flex flex-col justify-between space-y-5">
+      <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
         <div className="space-y-2">
           {initiative.tagline && (
             <div className="text-xs font-bold text-emerald-700 uppercase tracking-wide">
@@ -49,17 +57,15 @@ const InitiativeCard = ({ initiative, onSelect }) => {
           </p>
         </div>
 
-        {/* Progress */}
-        <div className="space-y-2 pt-3 border-t border-gray-100">
-          <div className="flex justify-between text-xs font-bold text-gray-700">
-            <span>Progress: {initiative.achieved} {initiative.unit}</span>
-            <span className="text-brand-forest">{percent}% of {initiative.target}</span>
+        {/* Milestone Target & Status (No Fake Past Progress) */}
+        <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+          <div>
+            <span className="text-gray-400 font-semibold block uppercase text-[10px]">Target Goal</span>
+            <span className="font-bold text-brand-dark">{initiative.target} {initiative.unit}</span>
           </div>
-          <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-brand-forest to-brand-emerald rounded-full transition-all duration-1000"
-              style={{ width: `${percent}%` }}
-            />
+          <div className="text-right">
+            <span className="text-gray-400 font-semibold block uppercase text-[10px]">Current Status</span>
+            <span className="font-bold text-emerald-700">Inaugural Phase</span>
           </div>
         </div>
 
@@ -68,7 +74,7 @@ const InitiativeCard = ({ initiative, onSelect }) => {
           onClick={() => onSelect(initiative)}
           className="w-full py-3 rounded-xl bg-emerald-50 hover:bg-brand-forest text-brand-forest hover:text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 group/btn cursor-pointer"
         >
-          <span>Explore Details</span>
+          <span>Explore Details & Volunteer</span>
           <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition" />
         </button>
       </div>

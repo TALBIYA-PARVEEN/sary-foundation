@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Play, Video, PlusCircle } from 'lucide-react';
 
 const VideoGrid = ({ videos, onSelect }) => {
@@ -12,13 +12,19 @@ const VideoGrid = ({ videos, onSelect }) => {
             className="group relative rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-300 bg-white border border-gray-100 cursor-pointer flex flex-col"
           >
             {/* Thumbnail Box with Play Badge */}
-            <div className="relative aspect-video overflow-hidden bg-black">
-              <img
-                src={item.thumbnail || 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80'}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-[#071916] via-[#0D3B2F] to-[#15803D] flex items-center justify-center">
+              {item.thumbnail ? (
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100"
+                />
+              ) : (
+                <div className="w-16 h-16 rounded-2xl bg-white/10 p-2 border border-white/20">
+                  <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-xl" />
+                </div>
+              )}
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                 <div className="w-14 h-14 rounded-full bg-brand-forest/90 group-hover:bg-brand-emerald text-white flex items-center justify-center shadow-2xl transition transform group-hover:scale-110">
                   <Play className="w-6 h-6 fill-current translate-x-0.5" />
                 </div>

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionHeading from '../../common/SectionHeading';
 import InitiativeCard from './InitiativeCard';
 import Modal from '../../common/Modal';
@@ -81,19 +81,20 @@ const InitiativesGrid = ({ onOpenDonate }) => {
         >
           {selectedInitiative && (
             <div className="space-y-5">
-              <div className="rounded-2xl overflow-hidden h-64 bg-gray-100">
-                <img
-                  src={selectedInitiative.image}
-                  alt={selectedInitiative.title}
-                  className="w-full h-full object-cover"
-                />
+              <div className="rounded-2xl overflow-hidden p-6 bg-gradient-to-r from-[#071916] via-[#0D3B2F] to-[#15803D] text-white flex items-center justify-between">
+                <div className="space-y-1">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                    {selectedInitiative.category} • Planned Campaign
+                  </span>
+                  <h4 className="text-xl font-bold">{selectedInitiative.title}</h4>
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-white/10 p-1 border border-white/20 shrink-0">
+                  <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-xl" />
+                </div>
               </div>
 
               <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest px-3 py-1 bg-emerald-50 rounded-full">
-                  {selectedInitiative.category}
-                </span>
-                <h3 className="text-2xl font-bold text-brand-dark mt-2">
+                <h3 className="text-2xl font-bold text-brand-dark">
                   {selectedInitiative.title}
                 </h3>
                 {selectedInitiative.tagline && (
@@ -109,12 +110,12 @@ const InitiativesGrid = ({ onOpenDonate }) => {
 
               <div className="bg-emerald-50 rounded-2xl p-4 flex items-center justify-between">
                 <div>
-                  <div className="text-xs text-gray-500 uppercase font-bold">Goal Target</div>
+                  <div className="text-xs text-gray-500 uppercase font-bold">Planned Milestone Target</div>
                   <div className="text-lg font-black text-brand-dark">{selectedInitiative.target} {selectedInitiative.unit}</div>
                 </div>
-                <div>
-                  <div className="text-xs text-gray-500 uppercase font-bold">Achieved</div>
-                  <div className="text-lg font-black text-emerald-700">{selectedInitiative.achieved} {selectedInitiative.unit}</div>
+                <div className="text-right">
+                  <div className="text-xs text-gray-500 uppercase font-bold">Campaign Status</div>
+                  <div className="text-sm font-black text-emerald-700">Volunteer Enlistment Active</div>
                 </div>
               </div>
 

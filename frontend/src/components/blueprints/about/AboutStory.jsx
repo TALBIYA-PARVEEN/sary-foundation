@@ -6,35 +6,32 @@ const AboutStory = () => {
     <section id="story" className="py-20 bg-gray-50 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Visual Column with badges */}
+          {/* Visual Column: Official Emblem Showcase */}
           <div className="relative">
-            {/* Floating Official Emblem Badge */}
-            <div className="absolute -top-6 -left-4 bg-[#FAF7F2] p-2 rounded-2xl shadow-xl border-2 border-emerald-400/40 flex items-center gap-2.5 z-10">
-              <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0">
-                <img src="/sary-logo.png" alt="SARY Foundation Official Emblem" className="w-full h-full object-contain" />
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] bg-gradient-to-br from-[#0B2722] via-[#0E3D31] to-[#15803D] p-8 flex flex-col items-center justify-center text-center text-white relative">
+              <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl bg-[#FAF7F2] p-3 shadow-2xl border-2 border-emerald-400/40 mb-4 hover:scale-105 transition transform duration-300">
+                <img
+                  src="/sary-logo.png"
+                  alt="SARY Foundation Official Emblem"
+                  className="w-full h-full object-contain rounded-2xl"
+                />
               </div>
-              <div className="pr-2">
-                <div className="text-xs font-black text-brand-dark uppercase tracking-wider">Official Emblem</div>
-                <div className="text-[10px] text-brand-forest font-bold">SARY Foundation</div>
-              </div>
-            </div>
-
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] bg-gray-200">
-              <img
-                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
-                alt="SARY Foundation Volunteer Drive"
-                className="w-full h-full object-cover"
-              />
+              <h4 className="font-extrabold text-lg tracking-wide text-white">
+                SARY FOUNDATION
+              </h4>
+              <p className="text-xs text-emerald-200 mt-1 max-w-xs">
+                Empowering People & Preserving Nature Through Civic Action
+              </p>
             </div>
             
-            {/* Floating Info Tag */}
-            <div className="absolute -bottom-6 -right-4 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 max-w-xs">
-              <div className="w-12 h-12 rounded-xl bg-brand-forest text-white flex items-center justify-center shrink-0">
-                <HeartHandshake className="w-6 h-6" />
+            {/* Authentic Info Tag */}
+            <div className="absolute -bottom-6 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 max-w-xs">
+              <div className="w-11 h-11 rounded-xl bg-brand-forest text-white flex items-center justify-center shrink-0">
+                <HeartHandshake className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl font-extrabold text-brand-dark">650+</div>
-                <div className="text-xs text-gray-500 font-semibold uppercase">Active Volunteers</div>
+                <div className="text-xs text-gray-500 font-bold uppercase">Chapter Location</div>
+                <div className="text-sm font-extrabold text-brand-dark">Vikas Nagar, Kanpur</div>
               </div>
             </div>
           </div>
@@ -46,16 +43,16 @@ const AboutStory = () => {
                 Our Foundation Journey
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">
-                Turning Concern Into Concrete Ground Action
+                Turning Environmental Concern Into Concrete Ground Action
               </h2>
             </div>
 
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-              <strong>SARY Foundation</strong> was initiated with a single conviction: environmental decay is not inevitable. When citizens observe plastic choking sacred riverbanks and barren city corners, passive concern is not enough—we must step forward and clean our shared home.
+              <strong>SARY Foundation</strong> was initiated with a single conviction: environmental decay is not inevitable. When citizens observe plastic choking riverbanks and barren city corners, passive concern is not enough—we must step forward and clean our shared home.
             </p>
 
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-              Beginning with small weekend clean-up mornings, our volunteers have removed tons of single-use plastic, planted thousands of indigenous trees, and inspired schools, youth groups, and local businesses to embrace sustainable waste segregation.
+              Based in Kanpur Nagar, Uttar Pradesh, SARY Foundation is gearing up for its inaugural community drives—mobilizing youth and passionate citizens for riverbank plogging, indigenous urban afforestation, and zero-waste community education.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
