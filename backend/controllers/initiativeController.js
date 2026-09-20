@@ -9,11 +9,11 @@ const defaultInitiatives = [
     description: 'Weekly community plogging and waste recovery drives at river ghats, removing plastic bottles, religious waste, and polythene before they pollute the aquatic ecosystem.',
     category: 'Cleanliness',
     icon: 'Waves',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
-    target: 200,
-    achieved: 120,
-    unit: 'Drives',
-    status: 'active',
+    image: '',
+    target: 100,
+    achieved: 0,
+    unit: 'Drives Planned',
+    status: 'upcoming',
     featured: true
   },
   {
@@ -24,11 +24,11 @@ const defaultInitiatives = [
     description: 'Planting indigenous saplings across schools, parks, and barren public spots. We nurture every sapling through community caretakers to ensure high survival rates.',
     category: 'Reforestation',
     icon: 'TreePine',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80',
-    target: 25000,
-    achieved: 15000,
-    unit: 'Saplings',
-    status: 'active',
+    image: '',
+    target: 5000,
+    achieved: 0,
+    unit: 'Native Trees Planned',
+    status: 'upcoming',
     featured: true
   },
   {
@@ -39,11 +39,11 @@ const defaultInitiatives = [
     description: 'Transforming discarded fabric waste and single-use plastic into reusable cloth bags, compost bins, and eco-crafts in partnership with women self-help groups.',
     category: 'Upcycling',
     icon: 'Recycle',
-    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80',
-    target: 20,
-    achieved: 12.5,
-    unit: 'Tons Upcycled',
-    status: 'active',
+    image: '',
+    target: 10,
+    achieved: 0,
+    unit: 'Tons Upcycling Target',
+    status: 'upcoming',
     featured: true
   },
   {
@@ -54,11 +54,11 @@ const defaultInitiatives = [
     description: 'Educating students and youth about climate change, segregation at source, waste audits, and adopting zero-waste lifestyle choices for long-term mindset shifts.',
     category: 'Education',
     icon: 'GraduationCap',
-    image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80',
-    target: 100,
-    achieved: 65,
-    unit: 'Workshops',
-    status: 'active',
+    image: '',
+    target: 50,
+    achieved: 0,
+    unit: 'Workshops Planned',
+    status: 'upcoming',
     featured: true
   }
 ];

@@ -38,9 +38,9 @@ const InitiativesGrid = ({ onOpenDonate }) => {
     <section className="py-20 bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionHeading
-          badge="Action Programs"
-          title="Environmental Drives & Initiatives"
-          subtitle="Explore the grassroots projects undertaken by SARY Foundation volunteers to rehabilitate ecosystems, protect waterbodies, and foster zero-waste habits."
+          badge="Planned Action Programs"
+          title="Upcoming Environmental Drives & Initiatives"
+          subtitle="Explore the planned grassroots campaigns designed by SARY Foundation to rehabilitate ecosystems, protect waterbodies, and foster zero-waste community habits."
         />
 
         {/* Category Pills */}

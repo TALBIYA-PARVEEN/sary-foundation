@@ -50,7 +50,7 @@ const ContactForm = () => {
           Message Sent!
         </h3>
         <p className="text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-          Thank you, <strong>{formData.name}</strong>. An email notification has been sent to our foundation desk at <strong>arshahmad441@gmail.com</strong>, and a confirmation has been sent to you.
+          Thank you, <strong>{formData.name}</strong>. An email notification has been sent to our foundation desk at <strong>saryfoundation@gmail.com</strong>, and a confirmation has been sent to you.
         </p>
         <button
           type="button"
@@ -108,7 +108,7 @@ const ContactForm = () => {
             required
             value={formData.email}
             onChange={handleChange}
-            placeholder="e.g. arshahmad441@gmail.com"
+            placeholder="e.g. yourname@example.com"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
           />
         </div>

@@ -49,11 +49,11 @@ const Navbar = ({ onOpenDonate }) => {
               <span>+91 9517330895</span>
             </a>
             <a 
-              href="mailto:arshahmad441@gmail.com" 
+              href="mailto:saryfoundation@gmail.com" 
               className="flex items-center gap-1.5 hover:text-emerald-400 transition"
             >
               <Mail className="w-3.5 h-3.5 text-emerald-400" />
-              <span>arshahmad441@gmail.com</span>
+              <span>saryfoundation@gmail.com</span>
             </a>
           </div>
 

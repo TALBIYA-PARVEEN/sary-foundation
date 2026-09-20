@@ -188,7 +188,7 @@ const DonationModal = ({ isOpen, onClose }) => {
         <div className="flex items-center gap-2.5 text-[11px] text-gray-500 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100">
           <ShieldCheck className="w-4 h-4 text-brand-forest shrink-0" />
           <span>
-            Donations are eligible for tax deduction benefits under Section 80G. For receipts, please email your transaction reference to <strong>arshahmad441@gmail.com</strong>.
+            Donations are eligible for tax deduction benefits under Section 80G. For receipts, please email your transaction reference to <strong>saryfoundation@gmail.com</strong>.
           </span>
         </div>
       </div>

@@ -49,7 +49,7 @@ async function runTests() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: 'Arsh Ahmad (Test Citizen)',
-          email: 'arshahmad441@gmail.com',
+          email: 'saryfoundation@gmail.com',
           phone: '9517330895',
           subject: 'Ghat Cleanliness Drive In Kanpur',
           message: 'Hello, I want to collaborate on organizing a weekly riverbank plogging drive.'

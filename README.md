@@ -6,7 +6,7 @@ A high-performance, responsive, eco-modern web platform built for **SARY Foundat
 
 ## 📌 Foundation Details
 - **Organization Name**: SARY Foundation
-- **Official Email**: `arshahmad441@gmail.com`
+- **Official Email**: `saryfoundation@gmail.com`
 - **Phone Number**: `+91 9517330895`
 - **Headquarters**: 351, Vikas Nagar, Lakhanpur, Kanpur Nagar, Uttar Pradesh - 208024
 
@@ -36,7 +36,7 @@ A high-performance, responsive, eco-modern web platform built for **SARY Foundat
 
 5. **Brevo (Sendinblue) Email & Database Integration**:
    - All citizen inquiries and volunteer signups are securely stored in **MongoDB**.
-   - Notifications are automatically dispatched to `arshahmad441@gmail.com` via **Brevo API**.
+   - Notifications are automatically dispatched to `saryfoundation@gmail.com` via **Brevo API**.
    - Auto-reply confirmation emails are sent to citizens and volunteers.
    - Graceful fallback: If Brevo credentials are not yet configured or in development mode, emails are cleanly simulated and logged to the console without interrupting user submissions.
 
@@ -144,9 +144,9 @@ npm run dev
 3. Open `backend/.env` and update:
    ```env
    BREVO_API_KEY=xkeysib-your-actual-api-key-here
-   BREVO_SENDER_EMAIL=arshahmad441@gmail.com
+   BREVO_SENDER_EMAIL=saryfoundation@gmail.com
    BREVO_SENDER_NAME="SARY Foundation"
-   ADMIN_NOTIFICATION_EMAIL=arshahmad441@gmail.com
+   ADMIN_NOTIFICATION_EMAIL=saryfoundation@gmail.com
    ```
 4. Restart the backend server. All volunteer signups and contact inquiries will instantly send live transactional emails!
 
@@ -157,5 +157,5 @@ npm run dev
 To keep the website authentic and clean, **there are no admin buttons anywhere on the public site**.
 
 - **URL**: `http://localhost:5173/sary-portal`
-- **Default Seed Username**: `saryadmin` *(or `admin@saryfoundation.org`)*
+- **Default Seed Username**: `saryadmin` *(or `saryfoundation@gmail.com`)*
 - **Default Seed Password**: `SaryAdmin@2025!`

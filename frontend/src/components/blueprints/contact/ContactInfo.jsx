@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const ContactInfo = () => {
@@ -38,8 +38,8 @@ const ContactInfo = () => {
           </div>
           <div>
             <div className="text-xs text-emerald-400 font-semibold uppercase">Official Foundation Email</div>
-            <a href="mailto:arshahmad441@gmail.com" className="font-bold text-base hover:text-emerald-300 transition break-all">
-              arshahmad441@gmail.com
+            <a href="mailto:saryfoundation@gmail.com" className="font-bold text-base hover:text-emerald-300 transition break-all">
+              saryfoundation@gmail.com
             </a>
             <div className="text-xs text-gray-400 mt-0.5">Responses typically sent within 24 hours</div>
           </div>

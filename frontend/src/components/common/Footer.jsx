@@ -176,8 +176,8 @@ const Footer = ({ onOpenDonate }) => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a href="mailto:arshahmad441@gmail.com" className="hover:text-emerald-400 transition text-xs font-semibold">
-                  arshahmad441@gmail.com
+                <a href="mailto:saryfoundation@gmail.com" className="hover:text-emerald-400 transition text-xs font-semibold">
+                  saryfoundation@gmail.com
                 </a>
               </div>
             </div>

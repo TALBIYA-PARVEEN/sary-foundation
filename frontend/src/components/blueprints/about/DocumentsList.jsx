@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import SectionHeading from '../../common/SectionHeading';
 import { FileText, Download, ShieldCheck } from 'lucide-react';
 
@@ -16,10 +16,10 @@ const docs = [
     size: '850 KB PDF'
   },
   {
-    title: 'Environmental Impact & Clean-Up Report',
-    desc: 'Comprehensive annual summary of waste diverted and trees planted.',
-    date: 'Annual 2024-25',
-    size: '2.4 MB PDF'
+    title: 'Charter of Environmental Goals & Proposed Roadmap',
+    desc: 'Foundational framework outlining upcoming grassroots targets, clean-up methodology, and community guidelines.',
+    date: 'Proposed Roadmap 2025-26',
+    size: 'Draft Placeholder'
   },
   {
     title: 'PAN & Legal Identification Certificates',

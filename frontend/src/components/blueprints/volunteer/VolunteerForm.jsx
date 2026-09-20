@@ -160,7 +160,7 @@ const VolunteerForm = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="e.g. arshahmad441@gmail.com"
+                      placeholder="e.g. yourname@example.com"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
                     />
                   </div>
@@ -304,7 +304,7 @@ const VolunteerForm = () => {
               </p>
               <div className="text-xs font-semibold space-y-1">
                 <div>📞 Phone: <strong>+91 9517330895</strong></div>
-                <div>✉️ Email: <strong>arshahmad441@gmail.com</strong></div>
+                <div>✉️ Email: <strong>saryfoundation@gmail.com</strong></div>
               </div>
             </div>
           </div>

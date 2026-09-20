@@ -62,7 +62,7 @@ app.get('/api/health', (req, res) => {
     time: new Date().toISOString(),
     organization: {
       name: 'SARY Foundation',
-      email: 'arshahmad441@gmail.com',
+      email: process.env.ADMIN_NOTIFICATION_EMAIL || 'saryfoundation@gmail.com',
       phone: '9517330895'
     }
   });

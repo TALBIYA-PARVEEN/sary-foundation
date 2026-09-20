@@ -12,9 +12,13 @@ const StatsSchema = new mongoose.Schema({
     required: true
   },
   value: {
-    type: Number,
+    type: mongoose.Schema.Types.Mixed,
     required: true,
     default: 0
+  },
+  sub: {
+    type: String,
+    default: ''
   },
   prefix: {
     type: String,
@@ -22,7 +26,7 @@ const StatsSchema = new mongoose.Schema({
   },
   suffix: {
     type: String,
-    default: '+'
+    default: ''
   },
   icon: {
     type: String,

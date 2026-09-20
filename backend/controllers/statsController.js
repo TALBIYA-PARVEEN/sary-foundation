@@ -3,43 +3,47 @@ const Stats = require('../models/Stats');
 const defaultStats = [
   {
     _id: 'stat_1',
-    key: 'clean_up_drives',
-    label: 'Ghat & City Clean-Up Drives',
-    value: 120,
+    key: 'riverbank_cleanliness',
+    label: 'Riverbank Cleanliness',
+    value: 'Phase 1',
     prefix: '',
-    suffix: '+',
-    icon: 'Trash2',
-    order: 1
+    suffix: '',
+    icon: 'Waves',
+    order: 1,
+    sub: 'Inaugural Drive Planned'
   },
   {
     _id: 'stat_2',
     key: 'volunteers',
-    label: 'Dedicated Volunteers',
-    value: 650,
+    label: 'Volunteer Movement',
+    value: 'Open',
     prefix: '',
-    suffix: '+',
+    suffix: '',
     icon: 'Users',
-    order: 2
+    order: 2,
+    sub: 'Registrations Active'
   },
   {
     _id: 'stat_3',
-    key: 'trash_removed',
-    label: 'Trash Removed from Waterbodies',
-    value: 85,
+    key: 'urban_afforestation',
+    label: 'Urban Afforestation Target',
+    value: '5,000+',
     prefix: '',
-    suffix: ' Mt+',
-    icon: 'Waves',
-    order: 3
+    suffix: '',
+    icon: 'TreePine',
+    order: 3,
+    sub: 'Native Trees Planned'
   },
   {
     _id: 'stat_4',
-    key: 'saplings_planted',
-    label: 'Trees Planted & Nurtured',
-    value: 15000,
+    key: 'zero_waste',
+    label: 'Zero-Waste Awareness',
+    value: '100%',
     prefix: '',
-    suffix: '+',
-    icon: 'TreePine',
-    order: 4
+    suffix: '',
+    icon: 'Trash2',
+    order: 4,
+    sub: 'Community Driven'
   }
 ];
 

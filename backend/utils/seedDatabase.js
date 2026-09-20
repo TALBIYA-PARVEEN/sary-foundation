@@ -16,7 +16,7 @@ const seedData = async () => {
     if (!adminExists) {
       await Admin.create({
         username: 'saryadmin',
-        email: 'admin@saryfoundation.org',
+        email: 'saryfoundation@gmail.com',
         password: 'SaryAdmin@2025!', // Password will be hashed by AdminSchema pre-save hook
         role: 'superadmin'
       });
@@ -30,40 +30,44 @@ const seedData = async () => {
     if (statsCount === 0) {
       const initialStats = [
         {
-          key: 'clean_up_drives',
-          label: 'Ghat & City Clean-Up Drives',
-          value: 120,
+          key: 'riverbank_cleanliness',
+          label: 'Riverbank Cleanliness',
+          value: 'Phase 1',
           prefix: '',
-          suffix: '+',
-          icon: 'Trash2',
-          order: 1
+          suffix: '',
+          icon: 'Waves',
+          order: 1,
+          sub: 'Inaugural Drive Planned'
         },
         {
           key: 'volunteers',
-          label: 'Dedicated Volunteers',
-          value: 650,
+          label: 'Volunteer Movement',
+          value: 'Open',
           prefix: '',
-          suffix: '+',
+          suffix: '',
           icon: 'Users',
-          order: 2
+          order: 2,
+          sub: 'Registrations Active'
         },
         {
-          key: 'trash_removed',
-          label: 'Trash Removed from Waterbodies',
-          value: 85,
+          key: 'urban_afforestation',
+          label: 'Urban Afforestation Target',
+          value: '5,000+',
           prefix: '',
-          suffix: ' Mt+',
-          icon: 'Waves',
-          order: 3
-        },
-        {
-          key: 'saplings_planted',
-          label: 'Trees Planted & Nurtured',
-          value: 15000,
-          prefix: '',
-          suffix: '+',
+          suffix: '',
           icon: 'TreePine',
-          order: 4
+          order: 3,
+          sub: 'Native Trees Planned'
+        },
+        {
+          key: 'zero_waste',
+          label: 'Zero-Waste Awareness',
+          value: '100%',
+          prefix: '',
+          suffix: '',
+          icon: 'Trash2',
+          order: 4,
+          sub: 'Community Driven'
         }
       ];
       await Stats.insertMany(initialStats);

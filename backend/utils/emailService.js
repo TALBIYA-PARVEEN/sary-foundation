@@ -1,8 +1,8 @@
 const brevo = require('@getbrevo/brevo');
 const { getBrevoClient } = require('../config/brevo');
 
-const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || 'arshahmad441@gmail.com';
-const SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL || 'noreply@saryfoundation.org';
+const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || 'saryfoundation@gmail.com';
+const SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL || 'saryfoundation@gmail.com';
 const SENDER_NAME = 'SARY Foundation';
 
 /**
@@ -76,7 +76,7 @@ const sendContactNotification = async (contact) => {
       </blockquote>
       <p>Together, let's make an impact and give back to nature!</p>
       <br/>
-      <p>Warm regards,<br/><strong>SARY Foundation Team</strong><br/>Phone: +91 9517330895<br/>Email: arshahmad441@gmail.com</p>
+      <p>Warm regards,<br/><strong>SARY Foundation Team</strong><br/>Phone: +91 9517330895<br/>Email: saryfoundation@gmail.com</p>
     </div>
   `;
 
@@ -133,7 +133,7 @@ const sendVolunteerNotification = async (volunteer) => {
       </p>
       <p>If you have any questions in the meantime, feel free to contact us at +91 9517330895 or reply to this email.</p>
       <br/>
-      <p>With gratitude,<br/><strong>SARY Foundation</strong><br/>Email: arshahmad441@gmail.com | Phone: 9517330895</p>
+      <p>With gratitude,<br/><strong>SARY Foundation</strong><br/>Email: saryfoundation@gmail.com | Phone: 9517330895</p>
     </div>
   `;
 
