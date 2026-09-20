@@ -31,7 +31,7 @@ const AboutStory = () => {
               </div>
               <div>
                 <div className="text-xs text-gray-500 font-bold uppercase">Chapter Location</div>
-                <div className="text-sm font-extrabold text-brand-dark">Vikas Nagar, Kanpur</div>
+                <div className="text-sm font-extrabold text-brand-dark">Ratanlal Nagar, Kanpur</div>
               </div>
             </div>
           </div>

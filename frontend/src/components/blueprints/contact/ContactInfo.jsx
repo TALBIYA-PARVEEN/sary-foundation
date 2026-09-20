@@ -53,7 +53,7 @@ const ContactInfo = () => {
           <div>
             <div className="text-xs text-emerald-400 font-semibold uppercase">Registered Head Office</div>
             <p className="font-medium text-sm text-gray-200 leading-relaxed mt-0.5">
-              351, Vikas Nagar, Lakhanpur, Kanpur Nagar, Uttar Pradesh (India) - 208024
+              Ratanlal Nagar, Kanpur Nagar, Uttar Pradesh (India) - 208022
             </p>
           </div>
         </div>

@@ -8,7 +8,7 @@ A high-performance, responsive, eco-modern web platform built for **SARY Foundat
 - **Organization Name**: SARY Foundation
 - **Official Email**: `saryfoundation@gmail.com`
 - **Phone Number**: `+91 9517330895`
-- **Headquarters**: 351, Vikas Nagar, Lakhanpur, Kanpur Nagar, Uttar Pradesh - 208024
+- **Headquarters**: Ratanlal Nagar, Kanpur Nagar, Uttar Pradesh - 208022
 
 ---
 

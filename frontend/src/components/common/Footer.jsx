@@ -165,7 +165,7 @@ const Footer = ({ onOpenDonate }) => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                 <span className="text-xs leading-relaxed">
-                  351, Vikas Nagar, Lakhanpur, Kanpur Nagar, Uttar Pradesh (India) - 208024
+                  Ratanlal Nagar, Kanpur Nagar, Uttar Pradesh (India) - 208022
                 </span>
               </div>
               <div className="flex items-center gap-3">
