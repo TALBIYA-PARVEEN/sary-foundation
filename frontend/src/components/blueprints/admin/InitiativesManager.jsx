@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { initiativeService } from '../../../services';
 import { useToast } from '../../../context/ToastContext';
 import { Plus, Trash2, Tag, Compass, Sparkles } from 'lucide-react';
@@ -107,6 +107,16 @@ const InitiativesManager = () => {
 
       {loading ? (
         <div className="py-20 text-center text-gray-400">Loading initiatives...</div>
+      ) : initiatives.length === 0 ? (
+        <div className="bg-white rounded-3xl p-10 border border-dashed border-gray-300 text-center space-y-3">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-brand-forest flex items-center justify-center mx-auto">
+            <Sparkles className="w-6 h-6" />
+          </div>
+          <h4 className="font-bold text-gray-800 text-base">No field initiatives created yet</h4>
+          <p className="text-xs text-gray-500 max-w-sm mx-auto">
+            The public website is currently showing an inaugural placeholder. When the foundation prepares its first drive, click "New Initiative" above to publish it.
+          </p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {initiatives.map((item) => (

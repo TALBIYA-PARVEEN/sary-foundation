@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import InitiativesGrid from '../components/blueprints/initiatives/InitiativesGrid';
 
 const InitiativesPage = ({ onOpenDonate }) => {
@@ -9,13 +9,13 @@ const InitiativesPage = ({ onOpenDonate }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/40 via-transparent to-emerald-900/40" />
         <div className="relative z-10 max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 inline-block">
-            Our Programs
+            Preparatory Inception Phase
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold">
-            Key Environmental Initiatives
+            Drives & Action Programs
           </h1>
-          <p className="text-sm text-gray-300 leading-relaxed">
-            Targeted community action programs focused on clean ghats, sacred waste upcycling, urban sapling canopy, and youth education.
+          <p className="text-sm text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            SARY Foundation is in its founding setup phase. No field drives or projects have been initiated yet. Explore our planned roadmap and enroll as a founding volunteer.
           </p>
         </div>
       </div>

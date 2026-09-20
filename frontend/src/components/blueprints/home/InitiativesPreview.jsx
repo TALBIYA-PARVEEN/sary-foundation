@@ -1,17 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import SectionHeading from '../../common/SectionHeading';
-import { ArrowRight, Waves, TreePine, Recycle, GraduationCap, Droplet, Sparkles } from 'lucide-react';
+import { Users, Calendar, ArrowRight, Sparkles, MapPin } from 'lucide-react';
 import { initiativeService } from '../../../services';
-
-const iconMap = {
-  Waves: Waves,
-  TreePine: TreePine,
-  Recycle: Recycle,
-  GraduationCap: GraduationCap,
-  Droplet: Droplet,
-  Sparkles: Sparkles
-};
 
 const InitiativesPreview = () => {
   const [initiatives, setInitiatives] = useState([]);
@@ -21,11 +11,14 @@ const InitiativesPreview = () => {
     const fetchInitiatives = async () => {
       try {
         const res = await initiativeService.getInitiatives();
-        if (res.success && res.data) {
+        if (res.success && res.data && res.data.length > 0) {
           setInitiatives(res.data.slice(0, 3));
+        } else {
+          setInitiatives([]);
         }
       } catch (err) {
         console.warn('Error fetching initiatives preview:', err.message);
+        setInitiatives([]);
       } finally {
         setLoading(false);
       }
@@ -36,85 +29,97 @@ const InitiativesPreview = () => {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <span className="text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full bg-emerald-100 text-brand-forest mb-3 inline-block">
-              Core Planned Programs
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">
-              Our Planned Initiatives
-            </h2>
-            <p className="mt-2 text-sm text-gray-600 max-w-xl">
-              From riverbank plogging and tree planting to zero-waste segregation, explore our proposed community drives. Register to join as a founding volunteer.
-            </p>
-          </div>
-          <Link
-            to="/initiatives"
-            className="mt-4 md:mt-0 inline-flex items-center gap-2 text-brand-forest hover:text-emerald-700 font-bold text-sm group"
-          >
-            <span>View All Planned Drives</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
-          </Link>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-extrabold uppercase tracking-widest px-3.5 py-1 rounded-full bg-emerald-100 text-brand-forest mb-3 inline-block">
+            Preparatory Inception Phase
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">
+            Field Drives & Initiatives
+          </h2>
+          <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            SARY Foundation is in its foundational setup phase. No public drives have been conducted yet as we actively mobilize our founding volunteer units and plan inaugural grassroots operations across Kanpur.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {initiatives.map((item) => {
-            const Icon = iconMap[item.icon] || Sparkles;
+        {/* Elegant Inaugural Placeholder Card */}
+        <div className="relative rounded-3xl border-2 border-dashed border-emerald-200 bg-gradient-to-b from-emerald-50/50 via-white to-emerald-50/30 p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-sm">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-[#FAF7F2] p-2 text-brand-forest shadow-md border border-emerald-200 mx-auto flex items-center justify-center">
+            <img 
+              src="/sary-logo.png" 
+              alt="SARY Foundation Emblem" 
+              className="w-full h-full object-contain rounded-2xl" 
+            />
+          </div>
 
-            return (
-              <div
-                key={item._id}
-                className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group"
-              >
-                {/* Branded Card Header (No Fake Event Photos) */}
-                <div className="relative h-44 bg-gradient-to-br from-[#071916] via-[#0D3B2F] to-[#15803D] p-6 flex flex-col justify-between overflow-hidden">
-                  <div className="flex items-center justify-between relative z-10">
-                    <span className="px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-emerald-200 text-xs font-bold border border-white/10">
-                      {item.category}
-                    </span>
-                    <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20 bg-white/10 p-0.5">
-                      <img src="/sary-logo.png" alt="SARY" className="w-full h-full object-contain rounded-full" />
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 relative z-10">
-                    <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center shadow-lg border border-white/20">
-                      <Icon className="w-5 h-5 text-emerald-300" />
-                    </div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
-                      Upcoming Drive
-                    </span>
-                  </div>
-                </div>
+          <div className="space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/90 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-emerald-700" />
+              <span>Inaugural Drives In Preparation</span>
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-dark">
+              No Public Drives Initiated Yet
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Our inaugural cleanliness plogging drives, ghat waste interventions, and urban sapling plantations in Kanpur are currently being structured. Drive schedules, meeting spots, and volunteer rosters will be announced here once flagged off.
+            </p>
+          </div>
 
-                {/* Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-brand-dark group-hover:text-brand-forest transition">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-gray-600 line-clamp-3 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Target Goal info */}
-                  <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
-                    <div>
-                      <span className="text-gray-400 font-semibold block uppercase text-[10px]">Planned Goal</span>
-                      <span className="font-bold text-brand-dark">{item.target} {item.unit}</span>
-                    </div>
-                    <Link
-                      to="/volunteer"
-                      className="text-brand-forest font-bold hover:underline flex items-center gap-1"
-                    >
-                      <span>Join Drive</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </div>
+          {/* Preparatory Milestone Roadmap */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 max-w-3xl mx-auto text-left">
+            <div className="bg-white p-5 rounded-2xl border border-gray-200/80 shadow-xs flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
+                  Step 1 • Active Now
+                </span>
+                <h4 className="font-bold text-sm text-brand-dark mt-2">Founding Volunteer Enlistment</h4>
+                <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                  Enrolling youth, students, and citizens to form our first field taskforce.
+                </p>
               </div>
-            );
-          })}
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-gray-200/80 shadow-xs flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">
+                  Step 2 • In Progress
+                </span>
+                <h4 className="font-bold text-sm text-brand-dark mt-2">Location & Route Surveys</h4>
+                <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                  Mapping priority riverbanks and community spots requiring urgent cleanup.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-gray-200/80 shadow-xs flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-0.5 rounded-md">
+                  Step 3 • Upcoming
+                </span>
+                <h4 className="font-bold text-sm text-brand-dark mt-2">Inaugural Drive Kickoff</h4>
+                <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                  Official date, reporting time, and gear distribution announced publicly.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Action CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-emerald-100 max-w-xl mx-auto">
+            <Link
+              to="/volunteer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-brand-forest hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:scale-105"
+            >
+              <Users className="w-4 h-4" />
+              <span>Register As Founding Volunteer</span>
+            </Link>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-gray-100 text-gray-700 border border-gray-200 font-bold text-xs uppercase tracking-wider transition"
+            >
+              <MapPin className="w-4 h-4 text-emerald-600" />
+              <span>Suggest A Drive Location</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,67 +1,7 @@
 const Initiative = require('../models/Initiative');
 
-const defaultInitiatives = [
-  {
-    _id: 'init_1',
-    title: 'Project Nirmal Ghats',
-    slug: 'project-nirmal-ghats',
-    tagline: 'Riverbank Cleanliness & Waterbody Conservation',
-    description: 'Weekly community plogging and waste recovery drives at river ghats, removing plastic bottles, religious waste, and polythene before they pollute the aquatic ecosystem.',
-    category: 'Cleanliness',
-    icon: 'Waves',
-    image: '',
-    target: 100,
-    achieved: 0,
-    unit: 'Drives Planned',
-    status: 'upcoming',
-    featured: true
-  },
-  {
-    _id: 'init_2',
-    title: 'Project Harit Canopy',
-    slug: 'project-harit-canopy',
-    tagline: 'Urban Greening & Mass Afforestation',
-    description: 'Planting indigenous saplings across schools, parks, and barren public spots. We nurture every sapling through community caretakers to ensure high survival rates.',
-    category: 'Reforestation',
-    icon: 'TreePine',
-    image: '',
-    target: 5000,
-    achieved: 0,
-    unit: 'Native Trees Planned',
-    status: 'upcoming',
-    featured: true
-  },
-  {
-    _id: 'init_3',
-    title: 'Project Punarjanm',
-    slug: 'project-punarjanm',
-    tagline: 'Upcycling & Zero Waste Circular Economy',
-    description: 'Transforming discarded fabric waste and single-use plastic into reusable cloth bags, compost bins, and eco-crafts in partnership with women self-help groups.',
-    category: 'Upcycling',
-    icon: 'Recycle',
-    image: '',
-    target: 10,
-    achieved: 0,
-    unit: 'Tons Upcycling Target',
-    status: 'upcoming',
-    featured: true
-  },
-  {
-    _id: 'init_4',
-    title: 'Project Shiksha & Youth',
-    slug: 'project-shiksha-youth',
-    tagline: 'School & College Eco-Warriors Program',
-    description: 'Educating students and youth about climate change, segregation at source, waste audits, and adopting zero-waste lifestyle choices for long-term mindset shifts.',
-    category: 'Education',
-    icon: 'GraduationCap',
-    image: '',
-    target: 50,
-    achieved: 0,
-    unit: 'Workshops Planned',
-    status: 'upcoming',
-    featured: true
-  }
-];
+// Kept clean - real initiatives will be created via Admin Portal (/sary-portal) once drives are officially launched
+const defaultInitiatives = [];
 
 let inMemoryInitiatives = [...defaultInitiatives];
 

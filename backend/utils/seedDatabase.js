@@ -74,83 +74,10 @@ const seedData = async () => {
       console.log('[Seed] Initial stats seeded');
     }
 
-    // 3. Seed Initiatives (Planned & Proposed)
+    // 3. Initiatives: Kept clean - real initiatives will be created once drives are initiated
     const initiativesCount = await Initiative.countDocuments();
     if (initiativesCount === 0) {
-      const initialInitiatives = [
-        {
-          title: 'Project Nirmal Ghats',
-          slug: 'project-nirmal-ghats',
-          tagline: 'Riverbank Cleanliness & Waterbody Conservation',
-          description: 'Weekly community plogging and waste recovery drives at river ghats, removing plastic bottles, religious waste, and polythene before they pollute the aquatic ecosystem.',
-          category: 'Cleanliness',
-          icon: 'Waves',
-          image: '',
-          target: 100,
-          achieved: 0,
-          unit: 'Drives',
-          status: 'upcoming',
-          order: 1
-        },
-        {
-          title: 'Project Harit Canopy',
-          slug: 'project-harit-canopy',
-          tagline: 'Urban Greening & Mass Afforestation',
-          description: 'Planting indigenous saplings across schools, parks, and public spots. We nurture every sapling through community caretakers to ensure high survival rates.',
-          category: 'Reforestation',
-          icon: 'TreePine',
-          image: '',
-          target: 5000,
-          achieved: 0,
-          unit: 'Saplings',
-          status: 'upcoming',
-          order: 2
-        },
-        {
-          title: 'Project Punarjanm',
-          slug: 'project-punarjanm',
-          tagline: 'Upcycling & Zero Waste Circular Economy',
-          description: 'Transforming discarded fabric waste and single-use plastic into reusable cloth bags, compost bins, and eco-crafts in partnership with women self-help groups.',
-          category: 'Upcycling',
-          icon: 'Recycle',
-          image: '',
-          target: 10,
-          achieved: 0,
-          unit: 'Tons Upcycled',
-          status: 'upcoming',
-          order: 3
-        },
-        {
-          title: 'Project Shiksha & Youth',
-          slug: 'project-shiksha-youth',
-          tagline: 'School & College Eco-Warriors Program',
-          description: 'Educating students and youth about climate change, segregation at source, waste audits, and adopting zero-waste lifestyle choices for long-term mindset shifts.',
-          category: 'Education',
-          icon: 'GraduationCap',
-          image: '',
-          target: 50,
-          achieved: 0,
-          unit: 'Workshops',
-          status: 'upcoming',
-          order: 4
-        },
-        {
-          title: 'Project Jal Dharani',
-          slug: 'project-jal-dharani',
-          tagline: 'Restoring Local Ponds and Water Reservoirs',
-          description: 'Desilting, cleaning banks, and reviving drying urban water reservoirs to recharge the water table and foster local biodiversity.',
-          category: 'Water Revival',
-          icon: 'Droplet',
-          image: '',
-          target: 10,
-          achieved: 0,
-          unit: 'Waterbodies',
-          status: 'upcoming',
-          order: 5
-        }
-      ];
-      await Initiative.insertMany(initialInitiatives);
-      console.log('[Seed] Initial planned initiatives seeded');
+      console.log('[Seed] Initiatives collection is clean. Ready for real drives via Admin Portal.');
     }
 
     // 4. Media: Kept 100% clean (Admin can upload real event photos/videos via /sary-portal)
