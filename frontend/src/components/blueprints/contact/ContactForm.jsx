@@ -93,7 +93,7 @@ const ContactForm = () => {
             required
             value={formData.name}
             onChange={handleChange}
-            placeholder="e.g. Arsh Ahmad"
+            placeholder="Enter your full name"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
           />
         </div>
@@ -108,7 +108,7 @@ const ContactForm = () => {
             required
             value={formData.email}
             onChange={handleChange}
-            placeholder="e.g. yourname@example.com"
+            placeholder="Enter your email address"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
           />
         </div>
@@ -124,7 +124,7 @@ const ContactForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="e.g. 9517330895"
+            placeholder="Enter 10-digit mobile number"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
           />
         </div>
@@ -138,7 +138,7 @@ const ContactForm = () => {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            placeholder="e.g. Clean-up Drive Partnership"
+            placeholder="Inquiry topic or partnership subject"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
           />
         </div>
@@ -154,7 +154,7 @@ const ContactForm = () => {
           rows="5"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Write your message here..."
+          placeholder="Write your message or inquiry here..."
           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
         ></textarea>
       </div>

@@ -145,7 +145,7 @@ const VolunteerForm = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Arsh Ahmad"
+                      placeholder="Enter your full name"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
                     />
                   </div>
@@ -160,7 +160,7 @@ const VolunteerForm = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="e.g. yourname@example.com"
+                      placeholder="Enter your email address"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
                     />
                   </div>
@@ -177,7 +177,7 @@ const VolunteerForm = () => {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="e.g. 9517330895"
+                      placeholder="Enter 10-digit mobile number"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
                     />
                   </div>
@@ -192,7 +192,7 @@ const VolunteerForm = () => {
                       required
                       value={formData.city}
                       onChange={handleChange}
-                      placeholder="e.g. Kanpur"
+                      placeholder="Enter your city / area"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
                     />
                   </div>
@@ -244,7 +244,7 @@ const VolunteerForm = () => {
                     rows="3"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your background, skills, or what motivates you..."
+                    placeholder="Share why you would like to volunteer or any relevant skills..."
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
                   ></textarea>
                 </div>

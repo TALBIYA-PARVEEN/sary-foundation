@@ -377,7 +377,7 @@ const DonationModal = ({ isOpen, onClose }) => {
                       type="text"
                       name="name"
                       required
-                      placeholder="e.g. Ramesh Kumar"
+                      placeholder="Enter donor's full name"
                       value={donorDetails.name}
                       onChange={handleInputChange}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
@@ -392,7 +392,7 @@ const DonationModal = ({ isOpen, onClose }) => {
                       type="email"
                       name="email"
                       required
-                      placeholder="e.g. ramesh@example.com"
+                      placeholder="Enter email for receipt"
                       value={donorDetails.email}
                       onChange={handleInputChange}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
@@ -408,7 +408,7 @@ const DonationModal = ({ isOpen, onClose }) => {
                     <input
                       type="tel"
                       name="phone"
-                      placeholder="e.g. 9876543210"
+                      placeholder="Enter 10-digit mobile number"
                       value={donorDetails.phone}
                       onChange={handleInputChange}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
@@ -423,7 +423,7 @@ const DonationModal = ({ isOpen, onClose }) => {
                       type="text"
                       name="panNumber"
                       maxLength={10}
-                      placeholder="e.g. ABCDE1234F"
+                      placeholder="Enter 10-digit PAN (e.g. ABCDE1234F)"
                       value={donorDetails.panNumber}
                       onChange={handleInputChange}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs sm:text-sm uppercase font-mono focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition"
