@@ -1,8 +1,13 @@
 {
-  "name": "sary-foundation-monorepo",
+  "name": "sary-foundation",
   "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
-    "start": "cd backend && npm start"
+    "build": "npm --prefix frontend run build",
+    "dev": "npm --prefix frontend run dev",
+    "start": "npm --prefix backend start"
   }
 }

@@ -1,34 +1,60 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authService } from '../services';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [admin, setAdmin] = useState(() => {
-    const saved = localStorage.getItem('sary_admin_info');
-    return saved ? JSON.parse(saved) : null;
+    try {
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('sary_admin_info') : null;
+      return saved ? JSON.parse(saved) : null;
+    } catch (_) {
+      return null;
+    }
   });
-  const [token, setToken] = useState(() => localStorage.getItem('sary_admin_token'));
-  const [loading, setLoading] = useState(true);
+
+  const [token, setToken] = useState(() => {
+    try {
+      return typeof window !== 'undefined' ? (localStorage.getItem('sary_admin_token') || null) : null;
+    } catch (_) {
+      return null;
+    }
+  });
+
+  const [loading, setLoading] = useState(() => {
+    try {
+      return typeof window !== 'undefined' && !!localStorage.getItem('sary_admin_token');
+    } catch (_) {
+      return false;
+    }
+  });
 
   useEffect(() => {
+    let isMounted = true;
+
     const verifyToken = async () => {
       if (token) {
         try {
-          const res = await authService.getMe();
-          if (res.success && res.admin) {
+          const timeoutPromise = new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Auth check timeout')), 4000)
+          );
+          const res = await Promise.race([authService.getMe(), timeoutPromise]);
+          if (isMounted && res && res.success && res.admin) {
             setAdmin(res.admin);
             localStorage.setItem('sary_admin_info', JSON.stringify(res.admin));
           }
         } catch (err) {
-          console.warn('Session expired or invalid:', err.message);
-          logout();
+          console.warn('Session verification notice:', err.message);
+          if (err.message.includes('expired') || err.message.includes('401')) {
+            logout();
+          }
         }
       }
-      setLoading(false);
+      if (isMounted) setLoading(false);
     };
 
     verifyToken();
+    return () => { isMounted = false; };
   }, [token]);
 
   const login = async (username, password) => {
