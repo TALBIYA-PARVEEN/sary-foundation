@@ -33,6 +33,16 @@ const connectDB = async () => {
     console.log(`[MongoDB] Connected successfully to host: ${conn.connection.host}`);
     console.log(`[MongoDB] Active Database: ${conn.connection.name}`);
 
+    // Ensure all 7 collections are explicitly created in MongoDB Atlas
+    const db = conn.connection.db;
+    const existingCols = (await db.listCollections().toArray()).map(c => c.name);
+    const requiredCols = ['admins', 'contacts', 'donations', 'initiatives', 'media', 'stats', 'volunteers'];
+    for (const col of requiredCols) {
+      if (!existingCols.includes(col)) {
+        await db.createCollection(col);
+      }
+    }
+
     // Auto-seed admin and stats if collection is empty
     const Admin = require('../models/Admin');
     const Stats = require('../models/Stats');
