@@ -10,7 +10,8 @@ import {
   LogOut, 
   Leaf, 
   ExternalLink,
-  ShieldCheck
+  ShieldCheck,
+  Heart
 } from 'lucide-react';
 import MediaManager from './MediaManager';
 import InitiativesManager from './InitiativesManager';
