@@ -1,4 +1,4 @@
-﻿import { request } from './api';
+import { request } from './api';
 
 export const contactService = {
   submitContact: (data) => request('/contact', { method: 'POST', body: JSON.stringify(data) }),
@@ -49,3 +49,17 @@ export const authService = {
   getMe: () => request('/auth/me'),
   updatePassword: (currentPassword, newPassword) => request('/auth/update-password', { method: 'PUT', body: JSON.stringify({ currentPassword, newPassword }) })
 };
+
+export const donationService = {
+  getKey: () => request('/donations/key'),
+  createOrder: (data) => request('/donations/create-order', { method: 'POST', body: JSON.stringify(data) }),
+  verifyPayment: (data) => request('/donations/verify-payment', { method: 'POST', body: JSON.stringify(data) }),
+  getDonations: (params = {}) => {
+    const query = new URLSearchParams();
+    if (params.status) query.append('status', params.status);
+    if (params.search) query.append('search', params.search);
+    if (params.page) query.append('page', params.page);
+    return request(`/donations${query.toString() ? `?${query.toString()}` : ''}`);
+  }
+};
+

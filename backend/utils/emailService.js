@@ -146,8 +146,98 @@ const sendVolunteerNotification = async (volunteer) => {
   });
 };
 
+/**
+ * Send 80G Donation Receipt to Donor & Admin Notification
+ */
+const sendDonationReceiptEmail = async (donation) => {
+  const formattedDate = new Date(donation.createdAt || Date.now()).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+  // 1. Official Receipt to Donor
+  const donorHtml = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #1f2937; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
+      <div style="background: #0B2722; color: #ffffff; padding: 24px; text-align: center;">
+        <h1 style="margin: 0; font-size: 22px; color: #34d399; letter-spacing: 1px;">SARY FOUNDATION</h1>
+        <p style="margin: 6px 0 0 0; font-size: 13px; color: #d1fae5;">Official Donation & 80G Tax Exemption Receipt</p>
+      </div>
+
+      <div style="padding: 24px;">
+        <p>Dear <strong>${donation.donorName}</strong>,</p>
+        <p>On behalf of everyone at <strong>SARY Foundation</strong>, we extend our heartfelt gratitude for your generous contribution of <strong>₹${Number(donation.amount).toLocaleString('en-IN')}</strong>. Your support directly powers our grassroots riverbank cleanliness drives, urban afforestation, and zero-waste community initiatives.</p>
+
+        <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin: 20px 0;">
+          <h3 style="margin-top: 0; color: #065f46; font-size: 15px; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px;">
+            📄 Receipt Details
+          </h3>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <tr><td style="padding: 6px 0; color: #6b7280;">Receipt Number:</td><td style="padding: 6px 0; font-weight: bold; text-align: right;">${donation.receiptNumber}</td></tr>
+            <tr><td style="padding: 6px 0; color: #6b7280;">Payment ID:</td><td style="padding: 6px 0; font-family: monospace; font-weight: bold; text-align: right;">${donation.razorpayPaymentId || 'N/A'}</td></tr>
+            <tr><td style="padding: 6px 0; color: #6b7280;">Order ID:</td><td style="padding: 6px 0; font-family: monospace; text-align: right;">${donation.razorpayOrderId}</td></tr>
+            <tr><td style="padding: 6px 0; color: #6b7280;">Date & Time:</td><td style="padding: 6px 0; text-align: right;">${formattedDate}</td></tr>
+            <tr><td style="padding: 6px 0; color: #6b7280;">Donor Name:</td><td style="padding: 6px 0; text-align: right;">${donation.donorName}</td></tr>
+            ${donation.panNumber ? `<tr><td style="padding: 6px 0; color: #6b7280;">PAN Number:</td><td style="padding: 6px 0; font-family: monospace; font-weight: bold; text-align: right;">${donation.panNumber}</td></tr>` : ''}
+            <tr style="border-top: 1px solid #e5e7eb;"><td style="padding: 10px 0; font-weight: bold; font-size: 15px; color: #065f46;">Amount Contributed:</td><td style="padding: 10px 0; font-weight: bold; font-size: 16px; color: #065f46; text-align: right;">₹${Number(donation.amount).toLocaleString('en-IN')}</td></tr>
+          </table>
+        </div>
+
+        <div style="background: #ecfdf5; border-left: 4px solid #10b981; padding: 12px; margin: 16px 0; font-size: 12px; color: #065f46;">
+          <strong>80G Tax Exemption Notice:</strong> Donations to SARY Foundation are eligible for tax deduction benefits under Section 80G of the Income Tax Act, 1961. Please retain this receipt for your tax records.
+        </div>
+
+        <p style="font-size: 12px; color: #6b7280; margin-top: 24px;">
+          <strong>SARY Foundation</strong><br/>
+          Registered Address: Ratanlal Nagar, Kanpur Nagar, Uttar Pradesh - 208022<br/>
+          Official Email: saryfoundation@gmail.com | Phone: +91 9517330895
+        </p>
+      </div>
+    </div>
+  `;
+
+  await sendEmail({
+    toEmail: donation.donorEmail,
+    toName: donation.donorName,
+    subject: `Donation Receipt ${donation.receiptNumber} - SARY Foundation (80G Tax Exempt)`,
+    htmlContent: donorHtml,
+    textContent: `Dear ${donation.donorName}, thank you for your contribution of ₹${donation.amount} to SARY Foundation. Receipt Number: ${donation.receiptNumber}, Payment ID: ${donation.razorpayPaymentId}`
+  });
+
+  // 2. Alert Foundation Admin
+  const adminHtml = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #233;">
+      <h2 style="color: #065f46; border-bottom: 2px solid #10b981; padding-bottom: 8px;">
+        💰 New Donation Received via Razorpay - SARY Foundation
+      </h2>
+      <p>A new online donation has been verified and captured successfully.</p>
+      <table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;">
+        <tr><td style="padding: 8px; font-weight: bold; width: 140px;">Amount:</td><td style="padding: 8px; font-weight: bold; color: #065f46; font-size: 18px;">₹${Number(donation.amount).toLocaleString('en-IN')}</td></tr>
+        <tr><td style="padding: 8px; font-weight: bold;">Donor Name:</td><td style="padding: 8px;">${donation.donorName}</td></tr>
+        <tr><td style="padding: 8px; font-weight: bold;">Donor Email:</td><td style="padding: 8px;"><a href="mailto:${donation.donorEmail}">${donation.donorEmail}</a></td></tr>
+        <tr><td style="padding: 8px; font-weight: bold;">Phone:</td><td style="padding: 8px;">${donation.donorPhone || 'Not provided'}</td></tr>
+        <tr><td style="padding: 8px; font-weight: bold;">PAN Number:</td><td style="padding: 8px;">${donation.panNumber || 'Not provided'}</td></tr>
+        <tr><td style="padding: 8px; font-weight: bold;">Payment ID:</td><td style="padding: 8px; font-family: monospace;">${donation.razorpayPaymentId}</td></tr>
+        <tr><td style="padding: 8px; font-weight: bold;">Receipt Number:</td><td style="padding: 8px; font-weight: bold;">${donation.receiptNumber}</td></tr>
+      </table>
+      <p style="font-size: 13px; color: #6b7280;">Logged into the database and viewable on the SARY Foundation Admin Portal (/sary-portal).</p>
+    </div>
+  `;
+
+  await sendEmail({
+    toEmail: ADMIN_EMAIL,
+    toName: 'SARY Foundation Admin',
+    subject: `💰 New Donation of ₹${donation.amount} received from ${donation.donorName}`,
+    htmlContent: adminHtml,
+    textContent: `New donation: ₹${donation.amount} from ${donation.donorName} (${donation.donorEmail}), Payment ID: ${donation.razorpayPaymentId}`
+  });
+};
+
 module.exports = {
   sendEmail,
   sendContactNotification,
-  sendVolunteerNotification
+  sendVolunteerNotification,
+  sendDonationReceiptEmail
 };

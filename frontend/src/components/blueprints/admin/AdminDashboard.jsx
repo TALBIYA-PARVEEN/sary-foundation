@@ -17,6 +17,7 @@ import InitiativesManager from './InitiativesManager';
 import StatsManager from './StatsManager';
 import VolunteersManager from './VolunteersManager';
 import InquiriesManager from './InquiriesManager';
+import DonationsManager from './DonationsManager';
 
 const AdminDashboard = () => {
   const { admin, logout, isAuthenticated, loading } = useAuth();
@@ -157,6 +158,19 @@ const AdminDashboard = () => {
               <MessageSquare className="w-4 h-4" />
               <span>Citizen Inquiries</span>
             </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab('donations')}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition text-left ${
+                activeTab === 'donations'
+                  ? 'bg-brand-forest text-white shadow-md'
+                  : 'text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              <Heart className="w-4 h-4 text-rose-400 fill-current" />
+              <span>Donations (Razorpay)</span>
+            </button>
           </nav>
         </aside>
 
@@ -167,6 +181,7 @@ const AdminDashboard = () => {
           {activeTab === 'stats' && <StatsManager />}
           {activeTab === 'volunteers' && <VolunteersManager />}
           {activeTab === 'inquiries' && <InquiriesManager />}
+          {activeTab === 'donations' && <DonationsManager />}
         </main>
       </div>
     </div>

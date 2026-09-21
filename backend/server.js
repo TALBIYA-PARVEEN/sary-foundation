@@ -53,6 +53,7 @@ app.use('/api/volunteers', require('./routes/volunteerRoutes'));
 app.use('/api/media', require('./routes/mediaRoutes'));
 app.use('/api/initiatives', require('./routes/initiativeRoutes'));
 app.use('/api/stats', require('./routes/statsRoutes'));
+app.use('/api/donations', require('./routes/donationRoutes'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
