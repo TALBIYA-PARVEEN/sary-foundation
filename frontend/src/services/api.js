@@ -1,7 +1,18 @@
-const RAW_URL = import.meta.env.VITE_API_URL || '/api';
-const API_BASE_URL = RAW_URL === '/api' 
-  ? '/api' 
-  : (RAW_URL.endsWith('/api') ? RAW_URL : `${RAW_URL.replace(/\/$/, '')}/api`);
+const getApiBaseUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    const raw = import.meta.env.VITE_API_URL.trim();
+    return raw.endsWith('/api') ? raw : `${raw.replace(/\/$/, '')}/api`;
+  }
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    if (host !== 'localhost' && host !== '127.0.0.1') {
+      return 'https://sary-foundation-backend.onrender.com/api';
+    }
+  }
+  return '/api';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 /**
  * Universal fetch wrapper handling JSON parsing, headers, and JWT auth tokens

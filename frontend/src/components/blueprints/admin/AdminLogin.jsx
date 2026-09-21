@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import { useToast } from '../../../context/ToastContext';
 import { Lock, User, ShieldCheck, ArrowRight, Loader2, Leaf } from 'lucide-react';
@@ -8,9 +8,13 @@ const AdminLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  if (isAuthenticated) {
+    return <Navigate to="/sary-portal/dashboard" replace />;
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();

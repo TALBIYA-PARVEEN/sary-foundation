@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import { 
   Image, 
@@ -38,7 +38,9 @@ const AdminDashboard = () => {
     );
   }
 
-  if (!isAuthenticated) return null;
+  if (!isAuthenticated) {
+    return <Navigate to="/sary-portal" replace />;
+  }
 
   return (
     <div className="min-h-screen bg-[#F4F7F5] flex flex-col">
