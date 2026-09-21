@@ -8,11 +8,12 @@ const SENDER_NAME = 'SARY Foundation';
 /**
  * Send email via Brevo transactional API with fallback to console logging
  */
-const sendEmail = async ({ toEmail, toName, subject, htmlContent, textContent }) => {
+const sendEmail = async ({ toEmail, toName, subject, htmlContent, textContent, replyToEmail, replyToName }) => {
   const client = getBrevoClient();
 
   if (!client) {
     console.log(`[Brevo Development Fallback] To: ${toEmail} (${toName}) | Subject: ${subject}`);
+    if (replyToEmail) console.log(`[Reply-To]: ${replyToEmail}`);
     console.log(`[Email Preview]:\n${textContent || htmlContent.substring(0, 200)}...`);
     return { success: true, mocked: true };
   }
@@ -24,6 +25,9 @@ const sendEmail = async ({ toEmail, toName, subject, htmlContent, textContent })
     sendSmtpEmail.subject = subject;
     sendSmtpEmail.htmlContent = htmlContent;
     if (textContent) sendSmtpEmail.textContent = textContent;
+    if (replyToEmail) {
+      sendSmtpEmail.replyTo = { email: replyToEmail, name: replyToName || replyToEmail };
+    }
 
     const response = await client.sendTransacEmail(sendSmtpEmail);
     console.log(`[Brevo Email Sent] MessageId: ${response?.body?.messageId || 'Success'}`);
@@ -39,7 +43,7 @@ const sendEmail = async ({ toEmail, toName, subject, htmlContent, textContent })
  * Send Contact Inquiries Notification
  */
 const sendContactNotification = async (contact) => {
-  // 1. Alert Foundation Admin
+  // 1. Alert Foundation Admin (with Reply-To set directly to the citizen's email)
   const adminHtml = `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #233;">
       <h2 style="color: #1e7e34; border-bottom: 2px solid #28a745; padding-bottom: 8px;">
@@ -53,7 +57,10 @@ const sendContactNotification = async (contact) => {
         <tr><td style="padding: 8px; font-weight: bold;">Subject:</td><td style="padding: 8px;">${contact.subject || 'General Inquiry'}</td></tr>
         <tr><td style="padding: 8px; font-weight: bold; vertical-align: top;">Message:</td><td style="padding: 8px; background: #f8f9fa; border-radius: 4px;">${contact.message}</td></tr>
       </table>
-      <p style="font-size: 13px; color: #6c757d;">You can manage this message directly from the SARY Foundation Portal.</p>
+      <div style="margin-top: 20px; padding: 12px; background: #e8f5e9; border-radius: 6px;">
+        💡 <strong>Quick Reply:</strong> You can simply hit <strong>"Reply"</strong> in your email client to respond directly to ${contact.name} (${contact.email}).
+      </div>
+      <p style="font-size: 13px; color: #6c757d; margin-top: 15px;">You can also manage this message in the SARY Foundation Portal.</p>
     </div>
   `;
 
@@ -62,7 +69,9 @@ const sendContactNotification = async (contact) => {
     toName: 'SARY Foundation Admin',
     subject: `New Inquiry from ${contact.name} - SARY Foundation`,
     htmlContent: adminHtml,
-    textContent: `New Inquiry from ${contact.name} (${contact.email}): ${contact.message}`
+    textContent: `New Inquiry from ${contact.name} (${contact.email}): ${contact.message}`,
+    replyToEmail: contact.email,
+    replyToName: contact.name
   });
 
   // 2. Acknowledgment to Sender
@@ -93,22 +102,25 @@ const sendContactNotification = async (contact) => {
  * Send Volunteer Registration Notification
  */
 const sendVolunteerNotification = async (volunteer) => {
-  // 1. Alert Foundation Admin
+  // 1. Alert Foundation Admin (with Reply-To set directly to volunteer's email)
   const adminHtml = `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #233;">
       <h2 style="color: #1e7e34; border-bottom: 2px solid #28a745; padding-bottom: 8px;">
         🤝 New Volunteer Registration - SARY Foundation
       </h2>
-      <p>A new volunteer has joined the SARY Foundation movement!</p>
+      <p>A new volunteer application has been submitted on the website.</p>
       <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
         <tr><td style="padding: 8px; font-weight: bold; width: 140px;">Name:</td><td style="padding: 8px;">${volunteer.name}</td></tr>
         <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;"><a href="mailto:${volunteer.email}">${volunteer.email}</a></td></tr>
-        <tr><td style="padding: 8px; font-weight: bold;">Phone:</td><td style="padding: 8px;"><a href="tel:${volunteer.phone}">${volunteer.phone}</a></td></tr>
+        <tr><td style="padding: 8px; font-weight: bold;">Phone:</td><td style="padding: 8px;">${volunteer.phone}</td></tr>
         <tr><td style="padding: 8px; font-weight: bold;">City:</td><td style="padding: 8px;">${volunteer.city}</td></tr>
         <tr><td style="padding: 8px; font-weight: bold;">Interest Area:</td><td style="padding: 8px;">${volunteer.interest}</td></tr>
         <tr><td style="padding: 8px; font-weight: bold;">Availability:</td><td style="padding: 8px;">${volunteer.availability}</td></tr>
         ${volunteer.message ? `<tr><td style="padding: 8px; font-weight: bold; vertical-align: top;">Motivation:</td><td style="padding: 8px; background: #f8f9fa;">${volunteer.message}</td></tr>` : ''}
       </table>
+      <div style="margin-top: 20px; padding: 12px; background: #e8f5e9; border-radius: 6px;">
+        💡 <strong>Quick Contact:</strong> Hit <strong>"Reply"</strong> to email ${volunteer.name} directly.
+      </div>
     </div>
   `;
 
@@ -117,7 +129,8 @@ const sendVolunteerNotification = async (volunteer) => {
     toName: 'SARY Foundation Admin',
     subject: `New Volunteer: ${volunteer.name} (${volunteer.city})`,
     htmlContent: adminHtml,
-    textContent: `New volunteer registered: ${volunteer.name}, Phone: ${volunteer.phone}, City: ${volunteer.city}, Area: ${volunteer.interest}`
+    textContent: `New volunteer registered: ${volunteer.name}, Phone: ${volunteer.phone}, City: ${volunteer.city}, Area: ${volunteer.interest}`,
+    replyToEmail: volunteer.email,
   });
 
   // 2. Welcome Email to Volunteer

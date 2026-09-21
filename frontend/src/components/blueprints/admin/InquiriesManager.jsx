@@ -1,13 +1,18 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { contactService } from '../../../services';
 import { useToast } from '../../../context/ToastContext';
-import { Mail, Phone, Clock, Trash2, CheckCircle2, MessageSquare, Reply } from 'lucide-react';
+import { Mail, Phone, Clock, Trash2, CheckCircle2, MessageSquare, Reply, Copy } from 'lucide-react';
 
 const InquiriesManager = () => {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState('');
   const { toast } = useToast();
+
+  const copyEmailToClipboard = (email) => {
+    navigator.clipboard.writeText(email);
+    toast(`Copied ${email} to clipboard!`, 'success');
+  };
 
   const fetchContacts = async () => {
     try {
@@ -150,15 +155,26 @@ const InquiriesManager = () => {
                   )}
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <a
                     href={`mailto:${c.email}?subject=Re: ${encodeURIComponent(c.subject || 'SARY Foundation Inquiry')}`}
                     onClick={() => handleStatusChange(c._id, 'replied')}
                     className="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold flex items-center gap-1 transition"
+                    title={`Send reply to ${c.email}`}
                   >
                     <Reply className="w-3.5 h-3.5" />
                     <span>Reply via Email</span>
                   </a>
+
+                  <button
+                    type="button"
+                    onClick={() => copyEmailToClipboard(c.email)}
+                    className="px-2.5 py-1.5 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-100 font-semibold flex items-center gap-1 transition text-xs"
+                    title={`Copy ${c.email} to clipboard`}
+                  >
+                    <Copy className="w-3.5 h-3.5 text-gray-500" />
+                    <span>Copy Email</span>
+                  </button>
 
                   {c.status !== 'read' && (
                     <button
