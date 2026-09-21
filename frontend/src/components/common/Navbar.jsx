@@ -3,8 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { 
   Phone, 
   Mail, 
-  Facebook, 
-  Twitter, 
   Instagram, 
   Linkedin, 
   ChevronDown, 
@@ -59,16 +57,23 @@ const Navbar = ({ onOpenDonate }) => {
 
           {/* Social Links */}
           <div className="flex items-center gap-4 text-white/70">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition" aria-label="Facebook">
-              <Facebook className="w-3.5 h-3.5" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition" aria-label="Twitter">
-              <Twitter className="w-3.5 h-3.5" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition" aria-label="Instagram">
+            <a 
+              href="https://www.instagram.com/saryfoundation/?hl=en" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="hover:text-emerald-400 transition" 
+              aria-label="Instagram"
+              title="Instagram: @saryfoundation"
+            >
               <Instagram className="w-3.5 h-3.5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-emerald-400 transition" aria-label="LinkedIn">
+            <a 
+              href="#" 
+              onClick={(e) => e.preventDefault()}
+              className="hover:text-emerald-400 transition cursor-pointer" 
+              aria-label="LinkedIn"
+              title="LinkedIn (Coming Soon)"
+            >
               <Linkedin className="w-3.5 h-3.5" />
             </a>
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Instagram, Linkedin } from 'lucide-react';
 
 const ContactInfo = () => {
   return (
@@ -74,16 +74,23 @@ const ContactInfo = () => {
       {/* Social Links */}
       <div className="pt-4 border-t border-white/10 flex items-center gap-3">
         <span className="text-xs text-gray-400 mr-2">Follow Us:</span>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-600 flex items-center justify-center transition">
-          <Facebook className="w-4 h-4" />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-600 flex items-center justify-center transition">
-          <Twitter className="w-4 h-4" />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-600 flex items-center justify-center transition">
+        <a 
+          href="https://www.instagram.com/saryfoundation/?hl=en" 
+          target="_blank" 
+          rel="noreferrer" 
+          className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-600 flex items-center justify-center transition"
+          aria-label="Instagram"
+          title="Instagram: @saryfoundation"
+        >
           <Instagram className="w-4 h-4" />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-600 flex items-center justify-center transition">
+        <a 
+          href="#" 
+          onClick={(e) => e.preventDefault()}
+          className="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-600 flex items-center justify-center transition cursor-pointer"
+          aria-label="LinkedIn"
+          title="LinkedIn (Coming Soon)"
+        >
           <Linkedin className="w-4 h-4" />
         </a>
       </div>

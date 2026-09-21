@@ -5,8 +5,6 @@ import {
   Phone, 
   Mail, 
   MapPin, 
-  Facebook, 
-  Twitter, 
   Instagram, 
   Linkedin, 
   Heart,
@@ -70,16 +68,23 @@ const Footer = ({ onOpenDonate }) => {
               A youth-led non-profit movement dedicated to environmental conservation, ghat clean-up drives, plastic waste recovery, urban afforestation, and zero-waste sustainable community living.
             </p>
             <div className="flex items-center gap-3 pt-2 text-emerald-400">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-emerald-950 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-emerald-950 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-emerald-950 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition">
+              <a 
+                href="https://www.instagram.com/saryfoundation/?hl=en" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/40 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition shadow-sm"
+                aria-label="Instagram"
+                title="Instagram: @saryfoundation"
+              >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-emerald-950 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition">
+              <a 
+                href="#" 
+                onClick={(e) => e.preventDefault()}
+                className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/40 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition shadow-sm cursor-pointer"
+                aria-label="LinkedIn"
+                title="LinkedIn (Coming Soon)"
+              >
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
