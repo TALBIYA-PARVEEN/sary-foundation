@@ -24,16 +24,13 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('media');
 
-  useEffect(() => {
-    if (!loading && !isAuthenticated) {
-      navigate('/sary-portal');
-    }
-  }, [isAuthenticated, loading, navigate]);
-
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center text-gray-400">
-        Verifying authorization...
+      <div className="min-h-screen bg-[#071916] text-white flex items-center justify-center">
+        <div className="text-center space-y-3">
+          <div className="w-8 h-8 border-2 border-emerald-400 border-t-transparent rounded-full animate-spin mx-auto" />
+          <p className="text-xs text-emerald-300 font-semibold uppercase tracking-wider">Verifying Session...</p>
+        </div>
       </div>
     );
   }

@@ -29,6 +29,11 @@ class ErrorBoundary extends React.Component {
               <p className="text-sm text-gray-300 pt-2 leading-relaxed">
                 The application encountered a temporary display state. Please click below to reload cleanly.
               </p>
+              {this.state.error && (
+                <div className="mt-3 text-[11px] font-mono text-emerald-300 bg-black/60 p-2.5 rounded-xl text-left overflow-auto max-h-28 border border-emerald-900/60">
+                  {this.state.error.message || this.state.error.toString()}
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
@@ -42,12 +47,19 @@ class ErrorBoundary extends React.Component {
               >
                 Reload Page
               </button>
-              <a
-                href="/sary-portal"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold py-2.5 px-6 rounded-xl text-xs border border-white/15 transition flex items-center justify-center"
+              <button
+                type="button"
+                onClick={() => {
+                  try {
+                    localStorage.removeItem('sary_admin_token');
+                    localStorage.removeItem('sary_admin_info');
+                  } catch (_) {}
+                  window.location.href = '/sary-portal';
+                }}
+                className="bg-white/10 hover:bg-white/20 text-white font-semibold py-2.5 px-6 rounded-xl text-xs border border-white/15 transition flex items-center justify-center cursor-pointer"
               >
-                Admin Login
-              </a>
+                Clear Session & Login
+              </button>
             </div>
           </div>
         </div>

@@ -8,13 +8,9 @@ const AdminLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login, isAuthenticated } = useAuth();
+  const { login, isAuthenticated, admin, logout } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
-
-  if (isAuthenticated) {
-    return <Navigate to="/sary-portal/dashboard" replace />;
-  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
